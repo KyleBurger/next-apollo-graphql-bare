@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import Navigation from "./Navigation";
-import Footer from "./Footer";
 import { GlobalStyle, theme } from "./_layout-styles";
 import Meta from "./Meta";
 
@@ -12,11 +10,9 @@ const withLayout = Page => {
       <GlobalStyle darkMode={props.darkMode} />
       <Meta />
       <MainStyles>
-        <Navigation />
-        <ContentContainer>
-          <Page />
-        </ContentContainer>
-        <Footer />
+        <nav>NavBar Here</nav>
+        <Page />
+        <footer>Footer content here</footer>
       </MainStyles>
     </ThemeProvider>
   );
@@ -30,9 +26,9 @@ export class Layout extends Component {
         <GlobalStyle darkMode={props.darkMode} />
         <Meta />
         <MainStyles>
-          <Navigation />
-          <ContentContainer>{this.props.children}</ContentContainer>
-          <Footer />
+          <nav>NavBar Here</nav>
+          {this.props.children}
+          <footer>Footer content here</footer>{" "}
         </MainStyles>
       </ThemeProvider>
     );

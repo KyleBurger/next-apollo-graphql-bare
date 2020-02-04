@@ -1,16 +1,8 @@
-# Next JS w/ Styled Components Boilerplate
+## Next JS w/ Apollo, GraphQL & Styled Components Boilerplate
 
-## Usage:
+### Install
 
-Install
-
-To clone the repository:
-
-```
-    git clone ...
-```
-
-To install the project run:
+To use this template clone the repository and then run to install dependencies:
 
 ```
     npm install
@@ -20,7 +12,17 @@ To install the project run:
     yarn
 ```
 
-## Deployment
+### Run the Project
+
+```
+    npm run dev
+
+    or
+
+    yarn dev
+```
+
+### Deployment
 
 Install Now CLI: [Zeit Now CLI](https://zeit.co/download)
 

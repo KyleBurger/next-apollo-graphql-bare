@@ -1,6 +1,5 @@
 import React from "react";
 import App from "next/app";
-import styled from "styled-components";
 import { ApolloProvider } from "react-apollo";
 import withData from "../lib/withData";
 import TagManager from "react-gtm";
@@ -28,22 +27,9 @@ class BuddyApp extends App {
     return (
       <ApolloProvider client={apollo}>
         <Component {...pageProps} />
-        <BannerContainer>
-          <CookieBanner />
-        </BannerContainer>
       </ApolloProvider>
     );
   }
 }
 
 export default withData(BuddyApp);
-
-const BannerContainer = styled.aside`
-  p {
-    font-size: 1.5rem;
-  }
-
-  div > div {
-    font-size: 3.2rem;
-  }
-`;
