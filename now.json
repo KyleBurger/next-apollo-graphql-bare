@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "YOUR_TOKEN_HERE": "@your-secret-token-that-was-added-to-zeit-now"
+    },
+    "continue": true
+  }
+}
