@@ -9,11 +9,11 @@ const withLayout = Page => {
     <ThemeProvider theme={theme}>
       <GlobalStyle darkMode={props.darkMode} />
       <Meta />
-      <MainStyles>
-        <nav>NavBar Here</nav>
-        <Page />
-        <footer>Footer content here</footer>
-      </MainStyles>
+      <main>
+        <MainContent>
+          <Page />
+        </MainContent>
+      </main>
     </ThemeProvider>
   );
 };
@@ -25,11 +25,9 @@ export class Layout extends Component {
       <ThemeProvider theme={theme}>
         <GlobalStyle darkMode={props.darkMode} />
         <Meta />
-        <MainStyles>
-          <nav>NavBar Here</nav>
-          {this.props.children}
-          <footer>Footer content here</footer>{" "}
-        </MainStyles>
+        <main>
+          <MainContent>{this.props.children}</MainContent>
+        </main>
       </ThemeProvider>
     );
   }
@@ -37,4 +35,20 @@ export class Layout extends Component {
 
 export default withLayout;
 
-const MainStyles = styled.main``;
+// TODO: Feel free to change all of the styles below to your own styles
+const MainContent = styled.section`
+  text-align: center;
+
+  .rotate {
+    animation: rotation 8s infinite linear;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+`;

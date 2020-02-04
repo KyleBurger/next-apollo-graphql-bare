@@ -23,9 +23,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${props => (props.darkMode ? props.theme.white : props.theme.black)};
-    background-color: ${props =>
-      props.darkMode ? props.theme.black : props.theme.white};
+    color: ${props => props.theme.white};
+    background-color: ${props => props.theme.primary};
   }
 
   main {
@@ -43,24 +42,11 @@ export const GlobalStyle = createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6 {
     margin: 0;
-		font-family: buddymx;
     letter-spacing:.3rem;
   }
 
   p, ul, li {
     font-size: 1.8rem;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .tooltip {
-    position: relative;
-
-    &:hover .tooltiptext {
-      visibility: visible;
-    }
   }
 
   .instagram {color:#fb3958;}

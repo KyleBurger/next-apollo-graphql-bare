@@ -5,7 +5,7 @@ import withData from "../lib/withData";
 import TagManager from "react-gtm";
 
 const tagManagerArgs = {
-  id: "GTM-YOUR_TAG_HERE"
+  id: "GTM-YOURTAGHERE"
 };
 
 class BuddyApp extends App {
