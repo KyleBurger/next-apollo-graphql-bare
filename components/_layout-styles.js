@@ -1,8 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
 export const theme = {
-  primary: "#333",
-  white: "#fff"
+  color: { primary: "#333", white: "#fff" },
+
+  breakpoints: {
+    desktopsm: "61.875rem", // 990px
+    tablet: "48rem", // 768px
+    phone: "35rem", // 560px
+    phonesm: "30rem", // 480px
+    phonexs: "20rem", // 320px
+  },
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,8 +30,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${props => props.theme.white};
-    background-color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.primary};
   }
 
   main {
