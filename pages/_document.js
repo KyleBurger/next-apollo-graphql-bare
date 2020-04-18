@@ -1,45 +1,46 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 class BuddyDocument extends Document {
-    static async getInitialProps(ctx) {
-        const sheet = new ServerStyleSheet();
-        const originalRenderPage = ctx.renderPage;
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
-        try {
-            ctx.renderPage = () =>
-                originalRenderPage({
-                    enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
-                });
-            const initialProps = await Document.getInitialProps(ctx);
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
+      const initialProps = await Document.getInitialProps(ctx);
 
-            return {
-                ...initialProps,
-                styles: (
-                    <>
-                        {initialProps.styles}
-                        {sheet.getStyleElement()}
-                    </>
-                )
-            };
-        } finally {
-            sheet.seal();
-        }
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
     }
+  }
 
-    render() {
-        const { styleTags } = this.props;
+  render() {
+    const { styleTags } = this.props;
 
-        return (
-            <Html lang="en">
-                <Head>{styleTags}</Head>
-                <body>
-                    <Main />
-                    <NextScript />
-                </body>
-            </Html>
-        );
-    }
+    return (
+      <Html lang="en">
+        <Head>{styleTags}</Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
 
 export default BuddyDocument;

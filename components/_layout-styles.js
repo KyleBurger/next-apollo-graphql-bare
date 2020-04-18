@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const theme = {
-  color: { primary: "#333", white: "#fff" },
+  colors: { primary: "#333", white: "#fff" },
 
   breakpoints: {
     desktopsm: "61.875rem", // 990px

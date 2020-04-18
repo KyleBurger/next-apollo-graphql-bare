@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { GlobalStyle, theme } from "./_layout-styles";
 import Meta from "./Meta";
 
 // Higher order component to use for the layout
-const withLayout = Page => {
-  return props => (
-    <ThemeProvider theme={theme}>
+const withLayout = (Page) => {
+  return (props) => (
+    <>
       <GlobalStyle darkMode={props.darkMode} />
       <Meta />
       <main>
@@ -14,7 +14,7 @@ const withLayout = Page => {
           <Page />
         </MainContent>
       </main>
-    </ThemeProvider>
+    </>
   );
 };
 
@@ -22,13 +22,13 @@ const withLayout = Page => {
 export class Layout extends Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <>
         <GlobalStyle darkMode={props.darkMode} />
         <Meta />
         <main>
           <MainContent>{this.props.children}</MainContent>
         </main>
-      </ThemeProvider>
+      </>
     );
   }
 }

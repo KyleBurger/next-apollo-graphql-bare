@@ -1,23 +1,16 @@
 import React from "react";
 import App from "next/app";
+import { ThemeProvider } from "styled-components";
 import { ApolloProvider } from "react-apollo";
 import withData from "../lib/withData";
 import TagManager from "react-gtm";
+import { theme } from "../components/_layout-styles";
 
 const tagManagerArgs = {
-  id: "GTM-YOURTAGHERE"
+  id: "GTM-YOURTAGHERE",
 };
 
 class BuddyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    pageProps.query = ctx.query;
-    return { pageProps };
-  }
-
   componentDidMount() {
     TagManager.initialize(tagManagerArgs);
   }
@@ -26,7 +19,9 @@ class BuddyApp extends App {
     const { Component, apollo, pageProps } = this.props;
     return (
       <ApolloProvider client={apollo}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </ApolloProvider>
     );
   }
